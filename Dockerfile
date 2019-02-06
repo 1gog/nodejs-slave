@@ -1,7 +1,7 @@
 FROM 1gog/jdk:10.0.2
 
 MAINTAINER Mirzuev Anatoliy <amirzuev@neoflex.ru>
-
+USER 0
 ENV HOME=/home/jenkins \
     JAVA_HOME=/usr/java/jdk-10.0.2/ 
 
@@ -12,10 +12,6 @@ RUN curl -sL https://rpm.nodesource.com/setup_8.x | bash -
 RUN yum install nodejs -y && yum clean all -y
 RUN yum install -y bzip2 git curl wget fontconfig freetype freetype-devel fontconfig-devel libstdc++ && yum clean all -y
 
-
-
-RUN npm install -g @angular/cli
-RUN npm install -g node-sass
 
 RUN mkdir -p /opt/jenkins
 
