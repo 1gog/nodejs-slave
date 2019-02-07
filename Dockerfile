@@ -1,9 +1,9 @@
-FROM 1gog/jdk:10.0.2
+FROM 1gog/jre:10.0.2
 
 MAINTAINER Mirzuev Anatoliy <amirzuev@neoflex.ru>
 USER 0
 ENV HOME=/home/jenkins \
-    JAVA_HOME=/usr/java/jdk-10.0.2/ 
+    JAVA_HOME=/usr/java/jre-10.0.2/bin/java
 
 
 # Install system utils 
@@ -11,7 +11,6 @@ RUN yum install -y git unzip tar zip which && yum clean all -y
 RUN curl -sL https://rpm.nodesource.com/setup_8.x | bash -
 RUN yum install nodejs -y && yum clean all -y
 RUN yum install -y bzip2 git curl wget fontconfig freetype freetype-devel fontconfig-devel libstdc++ && yum clean all -y
-
 
 RUN mkdir -p /opt/jenkins
 
